@@ -28,4 +28,8 @@ public class PlayerScore {
     public String getPlayerName() {
         return playerName;
     }
+
+    public int getGuessed() {
+        return guessed;
+    }
 }

@@ -49,8 +49,21 @@ public class TableController {
         });
         rateColumn.setPrefWidth(200);
 
+        TableColumn<PlayerScore, String> success = new TableColumn<>("Correct decisions");
+        success.setCellValueFactory(p -> {
+            if (p.getValue() != null) {
+                int guessed = p.getValue().getGuessed();
+
+                return new SimpleStringProperty(guessed + "");
+            } else {
+                return new SimpleStringProperty("<no name>");
+            }
+        });
+        rateColumn.setPrefWidth(200);
+
         tableView.getColumns().add(nameColumn);
         tableView.getColumns().add(rateColumn);
+        tableView.getColumns().add(success);
 
         slider.setMin(10);
         slider.setMax(100);
